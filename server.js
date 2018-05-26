@@ -15,6 +15,6 @@ app.listen(PORT);
 return console.log ("I hear you barkin dawg " + PORT);
 
 app.get('/', function(req,res){
-    res.render('index');
+    res.render('main');
 
 });
