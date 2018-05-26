@@ -1,10 +1,10 @@
 {
   "name": "brbproject2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/amandaogonosky/brbproject2/issues"
   },
-  "homepage": "https://github.com/amandaogonosky/brbproject2#readme"
+  "homepage": "https://github.com/amandaogonosky/brbproject2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.37.9"
+  }
 }
