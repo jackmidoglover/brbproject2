@@ -17,9 +17,11 @@
 
 
 
-
+    <div class ="col-md-12 mid-col text-center">
+            <h1 id="search-bikes">Bike Thefts In Your Area</h1>
+        </div>    
 <div class ="col-md-12 mid-col text-center">
-    <h1 id="search-bikes">Bike Thefts In Your Area</h1>
+
             <form>
               <input type="text" id="bike-search" placeholder="zip code here"></input>
               <input for="location-search" id="search" type="submit"></input>
@@ -32,6 +34,19 @@
 
 
 
+
+
+
+  
+    <script async defer src="https://apis.google.com/js/api.js" 
+    onload="this.onload=function(){};handleClientLoad()" 
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M&callback=initMap"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="assets/javascript/mapjs.js"></script>
 
 
 

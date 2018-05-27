@@ -177,7 +177,7 @@ background-color: black;
     }
     
     .addBike {
-      position: fixed;
+      /* position: fixed; */
       top: 10%;
       left: 30%;
       background-color: white;
@@ -258,8 +258,27 @@ html {
 
 .addbikeheader {
     font-family: 'Abril Fatface', serif; 
+    text-align: center;
 }
 
+
+
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+  .addbikelabels {
+    /* visibility: hidden; */
+    display: none;
+  }
+
+  .addbikeinputs {
+    margin-top: 100px;
+  }
+}
 
 
 
