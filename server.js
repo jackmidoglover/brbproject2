@@ -15,6 +15,10 @@ const PORT =3000;
 app.listen(PORT);
 return console.log ("I hear you barkin dawg " + PORT);
 
+var routes = require('./controllers');
+
+app.use(routes);
+
 // Syntx to connect to Postgresql server
 // CONNECT TO connection_target [ AS connection_name ] [ USER connection_user ]
 // CONNECT TO DEFAULT
