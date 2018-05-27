@@ -19,8 +19,7 @@ return console.log("I hear you barkin dawg " + PORT);
 
 // Routes
 // =============================================================
-require("./routes/apiroutes.js")(app);
-require("./routes/htmlroutes.js")(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -28,6 +27,10 @@ db.sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
     });
 });
+var routes = require('./controllers');
+
+app.use(routes);
+
 // Syntx to connect to Postgresql server
 // CONNECT TO connection_target [ AS connection_name ] [ USER connection_user ]
 // CONNECT TO DEFAULT

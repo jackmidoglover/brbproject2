@@ -26,6 +26,11 @@
     font-family: 'Abril Fatface', serif;
 }
 
+
+#search-bikes {
+    font-family: 'Abril Fatface', serif; 
+}
+
   #navnav {
     /* height: 55px; */
 padding-top: 0px;
@@ -36,6 +41,7 @@ background-image: url("../assets/images/gray.png");
 background-size: cover;
 
 }  
+
 
 
 
@@ -84,6 +90,131 @@ background-color: black;
 }
 
 
+
+
+
+#first-col{
+    background: rgba(0,0,0,0.5);
+    height: 600px;
+    margin-top:10px;
+    
+    }
+    #log-in{
+      color: black;
+      font-family: 'Abril Fatface', serif; 
+      font-size: 35px;
+      height: 100%;
+      padding-left: 0px;
+      padding-bottom: 15px;
+    }
+    #sign-in-or-out-button{
+    padding-left:0px;
+    margin-bottom: 20px;
+    }
+    /* #recent{
+    color: white;
+    font-family:' Chicle', cursive;
+    font-size: 30px;
+    height: 100%;
+    
+    } */
+    
+    #search-bikes{
+
+        font-family: 'Abril Fatface', serif; 
+      font-size: 40px;
+      height: 100%;
+    
+  
+    }
+    /* #bike-cross{
+    margin-top: 20px;
+    } */
+    
+    /* h1{   
+    color: antiquewhite;
+    font-family: 'Chicle', cursive;
+    } */
+    
+    #search { 
+      transition: all 1.3s;
+        background: #4cd800;
+    }
+    #bike-search:hover{
+      padding-inline-end: 80mm;
+      backface-visibility: visible;
+     fill: blue;
+     /* transform: scale(.9); */
+    }
+    .search-field{
+        float: inherit;
+        margin: 12px;
+        padding: 11px;
+        height: 400px;
+        width: 96%;
+    }
+    /* .recents {
+      width: 100%;
+      height: 33px;
+    border-radius: 60%;
+    position: absolute;
+    
+    } */
+    .row {
+      margin-right: -131px;
+      margin-left: -100px;
+      padding-top: 0px;
+    }
+    #middle{
+    text-align: center;
+    
+    }
+    
+    .bike-input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    }
+    
+    .addBike {
+      position: fixed;
+      top: 10%;
+      left: 30%;
+      background-color: white;
+      box-shadow: 5px 8px 10px darkgrey;
+      padding: 0 15px 24px 0;
+
+    }
+    
+    .stolenBike {
+      position: fixed;
+      top: 10%;
+      left: 30%;
+      background-color: white;
+      box-shadow: 5px 8px 10px darkgrey;
+      padding: 0 15px 24px 0;
+ 
+    
+    }
+    
+    .add {
+      margin-bottom: 5px;
+    }
+    
+    input.add{
+      width: 250px;
+    }
+    
+    label.add {
+      line-height: 1.9;
+      position: relative;
+      left: 25%;
+    }
+
+    
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -91,10 +222,11 @@ html {
     min-height: 100%;
   }
   body {
-    margin-bottom: 60px; Margin bottom by footer height
+    margin-bottom: 60px; 
 
 
   }
+
   .footer {
       
       color: red;
@@ -111,6 +243,24 @@ html {
     color: red;
     font-weight: bold;
 }
+
+
+.card-header {
+    font-family: 'Abril Fatface', serif; 
+  position: relative;
+  top: 5%;
+  
+}
+
+.text-center  {
+    
+}
+
+.addbikeheader {
+    font-family: 'Abril Fatface', serif; 
+}
+
+
 
 
 
