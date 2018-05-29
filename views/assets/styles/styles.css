@@ -259,11 +259,13 @@ html {
 .addbikeheader {
     font-family: 'Abril Fatface', serif; 
     text-align: center;
+    /* margin-top: 25px; */
 }
 
 .stolenbikeheader {
   font-family: 'Abril Fatface', serif; 
   text-align: center;
+  /* margin-top: 25px; */
 }
 
 
@@ -271,21 +273,35 @@ html {
 
 
 
+/* 
 
 
 
+/* @media screen and (max-width: 576px) {
 
-@media screen and (max-width: 576px) {
-  .addbikelabels {
-    /* visibility: hidden; */
-
-    display: none;
-  }
-
-  .addbikeinputs {
-    /* margin-top: 100px; */
-  }
+  .addbikeheader {
+    margin-top: 0px;
 }
+
+.stolenbikeheader {
+  margin-top: 0px;
+}
+
+} */ 
+
+
+@media screen and (min-width: 576px) {
+  .addbikeheader {
+    margin-top: 50px;
+}
+
+.stolenbikeheader {
+  margin-top: 50px;
+}
+
+}
+
+
 
 
 
