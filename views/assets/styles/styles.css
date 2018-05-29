@@ -186,7 +186,7 @@ background-color: black;
 
     }
     
-    .stolenBike {
+    /* .stolenBike {
       position: fixed;
       top: 10%;
       left: 30%;
@@ -195,7 +195,7 @@ background-color: black;
       padding: 0 15px 24px 0;
  
     
-    }
+    } */
     
     .add {
       margin-bottom: 5px;
@@ -261,6 +261,12 @@ html {
     text-align: center;
 }
 
+.stolenbikeheader {
+  font-family: 'Abril Fatface', serif; 
+  text-align: center;
+}
+
+
 
 
 
@@ -272,11 +278,12 @@ html {
 @media screen and (max-width: 576px) {
   .addbikelabels {
     /* visibility: hidden; */
+
     display: none;
   }
 
   .addbikeinputs {
-    margin-top: 100px;
+    /* margin-top: 100px; */
   }
 }
 
