@@ -160,11 +160,11 @@ background-color: black;
     position: absolute;
     
     } */
-    .row {
+    /* .row {
       margin-right: -131px;
       margin-left: -100px;
       padding-top: 0px;
-    }
+    } */
     #middle{
     text-align: center;
     
@@ -252,6 +252,19 @@ html {
   
 }
 
+.card {
+  /* background-color: black; */
+}
+
+.card-title {
+  margin-top: -10px;
+}
+
+.card-body {
+
+  height: 75px;
+}
+
 .text-center  {
     
 }
@@ -260,6 +273,7 @@ html {
     font-family: 'Abril Fatface', serif; 
     text-align: center;
     /* margin-top: 25px; */
+
 }
 
 .stolenbikeheader {

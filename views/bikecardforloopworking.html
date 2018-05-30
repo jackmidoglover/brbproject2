@@ -1,0 +1,24 @@
+Below here is a working Handlebars for loop that will create a card for each bike (currently 3 per row, change to col-6 to do 2 per row)
+      <div class="row">
+      <!-- {{#each stolenbikeybikes}} -->
+      <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src={{bikeimage}} alt="#">
+                <div class="card-body">
+                  <h5 class="card-title">STOLEN</h5>
+                  <p class="card-text">{{nameofbikeorsomething}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  Date Stolen: <li class="list-group-item">{{date}}</li>
+                  Time Stolen: <li class="list-group-item">{{time}}</li>
+                  Location Stolen: <li class="list-group-item">{{location}}</li>
+                  Reward if Found: <li class="list-group-item">{{reward}}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">{{linktoimagemaybe}}</a>
+                  <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" />
+                </div>
+              </div>
+        </div>
+    <!-- {{/each}} -->
+    </div>
