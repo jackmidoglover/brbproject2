@@ -20,19 +20,4 @@ router.post('/api/bikes', (req, res) => {
     });
 });
 
-router.post('/api/bikes/:id', (req, res) => {
-    let condition = "id = " + req.params.id;
-    console.log("condition ", condition);
-    bike.updateOne({
-        added: req.body.added
-    }, condition, function(result){
-        if (result.changedRows == 0) {
-            return res.status(404).end();
-          } else {
-            res.redirect("/");
-            res.status(200).end();
-          }
-    });
-});
-
 module.exports = router;
