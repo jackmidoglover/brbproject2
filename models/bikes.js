@@ -1,5 +1,3 @@
-const sequelize = require('../config/connection.js');
-
 module.exports = function(sequelize, DataTypes) {
     const Bikes = sequelize.define("Bikes", {
       text: {
