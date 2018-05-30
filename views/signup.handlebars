@@ -1,37 +1,38 @@
 
 <h1>{{title}}</h1>
-<form>
+<form id="userForm" method="POST" action="/signup">
     {{!-- username --}}
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Username">
+    <input type="text" class="form-control" name="username" aria-describedby="username" placeholder="Username">
 
   </div>
   {{!-- name --}}
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name">
+    <input type="text" class="form-control" name="name" placeholder="Name">
   </div>
     {{!-- email --}}
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Email">
+    <input type="email" class="form-control" name="email" placeholder="Email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   {{!-- zipcode --}}
   <div class="form-group">
-    <label for="zip">Password</label>
-    <input type="number" class="form-control" id="zip" placeholder="Zipcode">
+    <label for="zip">Zipcode</label>
+    <input type="number" class="form-control" name="zip" placeholder="Zipcode">
   </div>
   {{!-- password --}}
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" name="password" placeholder="Password">
   </div>
   {{!-- password verification --}}
   <div class="form-group">
     <label for="password2">Verify Password</label>
-    <input type="password" class="form-control" id="password2" placeholder="Verify Password">
+    <input type="password" class="form-control" name="password2" placeholder="Verify Password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <input type="submit" for="userForm" class="btn btn-primary"></input>
 </form>
+{{error}}
