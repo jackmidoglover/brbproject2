@@ -160,11 +160,11 @@ background-color: black;
     position: absolute;
     
     } */
-    .row {
+    /* .row {
       margin-right: -131px;
       margin-left: -100px;
       padding-top: 0px;
-    }
+    } */
     #middle{
     text-align: center;
     
@@ -177,7 +177,7 @@ background-color: black;
     }
     
     .addBike {
-      position: fixed;
+      /* position: fixed; */
       top: 10%;
       left: 30%;
       background-color: white;
@@ -186,7 +186,7 @@ background-color: black;
 
     }
     
-    .stolenBike {
+    /* .stolenBike {
       position: fixed;
       top: 10%;
       left: 30%;
@@ -195,7 +195,7 @@ background-color: black;
       padding: 0 15px 24px 0;
  
     
-    }
+    } */
     
     .add {
       margin-bottom: 5px;
@@ -252,13 +252,69 @@ html {
   
 }
 
+.card {
+  /* background-color: black; */
+}
+
+.card-title {
+  margin-top: -10px;
+}
+
+.card-body {
+
+  height: 75px;
+}
+
 .text-center  {
     
 }
 
 .addbikeheader {
     font-family: 'Abril Fatface', serif; 
+    text-align: center;
+    /* margin-top: 25px; */
+
 }
+
+.stolenbikeheader {
+  font-family: 'Abril Fatface', serif; 
+  text-align: center;
+  /* margin-top: 25px; */
+}
+
+
+
+
+
+
+/* 
+
+
+
+/* @media screen and (max-width: 576px) {
+
+  .addbikeheader {
+    margin-top: 0px;
+}
+
+.stolenbikeheader {
+  margin-top: 0px;
+}
+
+} */ 
+
+
+@media screen and (min-width: 576px) {
+  .addbikeheader {
+    margin-top: 50px;
+}
+
+.stolenbikeheader {
+  margin-top: 50px;
+}
+
+}
+
 
 
 
