@@ -2,14 +2,14 @@ module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define("User", {
       // Giving the User model a name of type STRING
       ID: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
           }
     },    
     UserName: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         unique: true,
         allowNull: false,
         validate: {
@@ -17,28 +17,28 @@ module.exports = function(sequelize, DataTypes) {
           }
     },    
     Name: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
           }
     },    
     UserPassword: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
           }
     },    
     Zipcode: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
           }
     },    
     Email: {
-        type: Datatype.STRING,
+        type: DataTypes.STRING,
         unique: true,
         allowNull: false,
         validate: {
