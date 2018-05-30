@@ -1,23 +1,28 @@
 
-const express = require ('express');
-const exphbs = require ('express-handlebars');
-// body-parsing middleware;
-const bodyParser = require ('body-parser');
-const path = require ('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const PORT = 8000;
+
+const path = require('path');
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
+app.use(express.static("public"));
+
+
+const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+var authroutes = require('./controllers/passport_controllers.js');
 
-const PORT =3000;
-app.listen(PORT);
-return console.log ("I hear you barkin dawg " + PORT);
+app.use(authroutes);
+app.listen(PORT, function(){
+    console.log ("I hear you barkin dawg " + PORT);
+    
+});
 
-var routes = require('./controllers');
 
-app.use(routes);
 
 // Syntx to connect to Postgresql server
 // CONNECT TO connection_target [ AS connection_name ] [ USER connection_user ]
