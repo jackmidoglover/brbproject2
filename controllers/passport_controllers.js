@@ -3,12 +3,13 @@ const passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy,
     GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 require('dotenv').config();
-const users = require('../models/users');
-const express = require('express');
-const router = express.Router();
+// const users = require('../models/users');
+let express = require('express');
+let router = express.Router();
 
-router.get("/signup", function(req,res){
-        return res.render("signup");
+router.get("/signup", (req, res) => {
+        console.log("signup hit");
+        res.render("signup", {title: "Registration"});
     })
 
 
