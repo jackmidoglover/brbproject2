@@ -1,4 +1,5 @@
 const passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 require('dotenv').config();
 // const users = require('../models/users');
@@ -14,9 +15,9 @@ router.get("/signup", (req, res) => {
         res.render("signup", {title: "Registration"});
     })
 
-router.post("/signup", (req, res) => {
-    const password = req.body.password;
-    const password2 = req.body.password2;
+router.post("/signup",(req, res) => {
+    let password = req.body.password;
+    let password2 = req.body.password2;
     if (password === password2) {
         bcrypt.hash(password, saltRounds, function(err, hash) {
             db.Users.create({
@@ -62,6 +63,18 @@ passport.serializeUser(function(user_id, done) {
         })
   });
 
+  router.get("/login", (req,res) => {
+      console.log("login hit");
+      res.render("login");
+  })
+
+router.post("/login", passport.authenticate("local"), (req,res) => {
+    let password = req.body.password;
+    let password2 = req.body.password2;
+    if (password === password2) {
+        res.redirect("/");
+    }
+})
 
 
 module.exports = router;
