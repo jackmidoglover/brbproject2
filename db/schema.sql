@@ -37,7 +37,7 @@ CREATE TABLE User(
         unique: true,
         allowNull: false,
     },    
-    Name: {
+    UserName: {
         type: Sequalize.STRING,
         allowNull: false,
     },    

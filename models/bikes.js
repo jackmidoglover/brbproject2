@@ -36,11 +36,35 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [1, 140]
       }
-    }
+    },
 
   });
 
-  
+  //create bike
+  app.post('/api/bikes', (req, res) => {
+    Bikes.create(req.body)
+      .then(bikes => res.json(bikes))
+  })
+
+  //find bike belonging to user
+  app.get('/api/bikes/:userId?', (req, res) => {
+    let query; {
+      (req.params.userId)
+      query = Bikes.findAll({
+        include: [
+          { model: User, where: { id: req.params.userId } },
+        ]
+      })
+
+    }
+    return query.then(bikes => res.json(bikes))
+  })
+
+  //delete bike
+  app.delete('/api/bikes', (req, res) => {
+    Bikes.remove(req.body)
+      .then(bikes => res.json(bikes))
+  })
 
   return Bikes;
 };
