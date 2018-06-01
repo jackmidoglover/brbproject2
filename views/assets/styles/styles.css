@@ -13,7 +13,10 @@
     color: black;
     justify-content: center;
     /* height: 55px; */
+   
+
   }
+
 
   .navbar-light .navbar-nav .nav-link {
     color: black;
@@ -247,10 +250,6 @@ html {
   
 }
 
-.card {
-  /* background-color: black; */
-}
-
 .card-title {
   margin-top: -10px;
 }
@@ -258,10 +257,6 @@ html {
 .card-body {
 
   height: 75px;
-}
-
-.text-center  {
-    
 }
 
 .addbikeheader {
