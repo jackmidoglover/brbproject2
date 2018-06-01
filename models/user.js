@@ -1,13 +1,7 @@
+const bcrypt = require('bcrypt');
 module.exports = function(sequelize, DataTypes) {
-    const User = sequelize.define("User", {
-      // Giving the User model a name of type STRING
-      ID: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1, 140]
-          }
-    },    
+    const Users = sequelize.define("Users", {
+      // Giving the User model a name of type STRING 
     UserName: {
         type: DataTypes.STRING,
         unique: true,
@@ -27,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            len: [1, 140]
+            len: [1, 60]
           }
     },    
     Zipcode: {
@@ -47,13 +41,17 @@ module.exports = function(sequelize, DataTypes) {
     }
     });
   
-    User.associate = function(models) {
+    Users.associate = function(models) {
       // Associating User with Bikes
       // When an User is deleted, also delete any associated Bikes
-      User.hasMany(models.Bikes, {
+      Users.hasMany(models.Bikes, {
         onDelete: "cascade"
       });
     };
+
+    Users.prototype.validatePassword = function(password){
+      return bcrypt.compareSync(password, this.password);
+    }
   
-    return User;
+    return Users;
   };
