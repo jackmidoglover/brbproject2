@@ -40,7 +40,10 @@ module.exports = function(sequelize, DataTypes) {
           }
     }
     });
-  
+
+    
+
+
     Users.associate = function(models) {
       // Associating User with Bikes
       // When an User is deleted, also delete any associated Bikes
@@ -49,9 +52,17 @@ module.exports = function(sequelize, DataTypes) {
       });
     };
 
+    
+
     Users.prototype.validatePassword = function(password){
       return bcrypt.compareSync(password, this.password);
     }
-  
+    
+    //delete User
+  app.delete('/api/user', (req, res) => {
+    Users.remove(req.body)
+      .then(user => res.json(user))
+  })
+
     return Users;
   };
