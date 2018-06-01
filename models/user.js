@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 module.exports = function(sequelize, DataTypes) {
     const Users = sequelize.define("Users", {
       // Giving the User model a name of type STRING 
@@ -47,6 +48,10 @@ module.exports = function(sequelize, DataTypes) {
         onDelete: "cascade"
       });
     };
+
+    Users.prototype.validatePassword = function(password){
+      return bcrypt.compareSync(password, this.password);
+    }
   
     return Users;
   };

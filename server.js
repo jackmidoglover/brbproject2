@@ -6,19 +6,38 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const db = require("./models");
+const pg = require('pg');
+
+// Allows html post requests
 const methodOverride = require('method-override');
+
+// Authorization packages
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+const config = require('./config/config.json');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(session({
+    secret: 'iou8sadjh7453alk',
+    resave: false,
+    saveUninitialized: true,
+    // cookie: { secure: true }
+  }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-var authroutes = require('./controllers/passport_controllers.js');
-
+const authroutes = require('./controllers/passport_controllers.js');
+const routes = require('./controllers/brb_controllers.js');
 
 const PORT = 8080;
 
 app.use(authroutes);
+app.use(routes);
 app.use(methodOverride('_method'));
 
 
