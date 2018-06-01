@@ -1,10 +1,11 @@
 
-const express = require('express');
-const exphbs = require('express-handlebars');
+const express = require ('express');
+const exphbs = require ('express-handlebars');
 // body-parsing middleware;
-const bodyParser = require('body-parser');
-const path = require('path');
+const bodyParser = require ('body-parser');
+const path = require ('path');
 const app = express();
+<<<<<<< HEAD
 const db = require("./models");
 const pg = require('pg');
 
@@ -51,6 +52,17 @@ db.sequelize.sync({ force: true }).then(function () {
         console.log("I hear you barkin dawg", PORT)
     });
 });
+=======
+
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json());
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+const PORT =3000;
+app.listen(PORT);
+return console.log ("I hear you barkin dawg " + PORT);
+>>>>>>> 959461f09595fe8a552531b60b1b938ef12b9fe6
 
 
 
