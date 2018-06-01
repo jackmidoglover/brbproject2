@@ -42,8 +42,13 @@ background-size: cover;
 
 }  
 
-
-
+.card-img-top{
+padding-top: 5px;
+width: 50%;
+height: 50%;
+border-style: groove;
+padding-bottom: 10px;
+}
 
 
 .navbar-item {
@@ -90,9 +95,6 @@ background-color: black;
 }
 
 
-
-
-
 #first-col{
     background: rgba(0,0,0,0.5);
     height: 600px;
@@ -124,7 +126,7 @@ background-color: black;
         font-family: 'Abril Fatface', serif; 
       font-size: 40px;
       height: 100%;
-    
+  
   
     }
     /* #bike-cross{
@@ -252,9 +254,9 @@ html {
   
 }
 
-.card {
+/* .card {
   /* background-color: black; */
-}
+/* } */ 
 
 .card-title {
   margin-top: -10px;
