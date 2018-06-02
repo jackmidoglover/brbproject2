@@ -33,9 +33,6 @@ module.exports = function (sequelize, DataTypes) {
     ImageURL: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        len: [1, 140]
-      }
     },
     Stolenness: {
       type: DataTypes.BOOLEAN,

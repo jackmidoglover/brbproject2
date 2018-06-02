@@ -79,10 +79,10 @@ router.post('/stolen/:id?', (req, res) => {
 
 //find bike belonging to user
 router.get('/mybikes', (req, res) => {
-    console.log(req.body);
+    console.log(req.user.id);
     db.Bikes.findAll ({
         where: {
-            id: req.user    
+            id: req.user.id    
         }
     }).then((data) => {
         let hbsinfo = {
