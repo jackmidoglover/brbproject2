@@ -1,0 +1,23 @@
+
+
+<div class="col-sm-12   text-center ">
+        <h2 class='addbikeheader'>Login</h2>
+    <div class="row">
+
+    <div class="col-sm-12 addbikeinputs">
+    <form id="loginForm" method="POST" action="/login">
+        <input type="text" name="username" placeholder="Username" class="add" id="username"/>
+        <br>
+        <input type="password" name="password" placeholder="Password" class="add" id="password" />
+        <br>
+        <input type="password" name="password2" placeholder="Verify Password" class="add" id="password2"/>
+        <br>
+        <input type="submit" for="loginForm" class="btn btn-success"/>
+{{error}}
+<br>
+Don't have an account? <a href="/signup" id="signupLink"><span class="red">Sign up!</span></a>
+</div>
+
+
+
+

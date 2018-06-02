@@ -1,0 +1,25 @@
+<div class="col-sm-12   text-center ">
+        <h2 class='addbikeheader'>{{title}}</h2>
+    <div class="row">
+
+    <div class="col-sm-12 addbikeinputs">
+<form id="userForm" method="POST" action="/signup">
+        <input type="text" name="username" placeholder="Username" class="add" id="username"/>
+            <br>
+        <input type="text" name="name" placeholder="Name" class="add" id="name"/>
+        <br>
+        <input type="text" name="email" placeholder="Email (We will never share this)" class="add" id="email" />
+        <br>
+        <input type="text" name="zip" placeholder="Zip Code" class="add" id="zip" />
+        <br>
+
+        <input type="password" name="password" placeholder="Password" class="add" id="password" />
+        <br>
+        <input type="password" name="password2" placeholder="Verify Password" class="add" id="password2"/>
+        <br>
+        <input type="submit" for="userForm" class="btn btn-success addbikesub" />
+        {{error}}
+</form>
+</div>
+</div>
+</div>

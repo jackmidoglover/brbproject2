@@ -1,0 +1,64 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+        <title>Bike Right Back</title>
+    </head>
+    
+    <body>
+
+
+
+<div class="col-sm-12   text-center ">
+        <h2 class='addbikeheader'>Sign Up Today!</h2>
+    <div class="row">
+
+    <div class="col-sm-12 addbikeinputs">
+    <form>
+        <form id="userForm" method="POST" action="/signup">
+            {{!-- username --}}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" aria-describedby="username" placeholder="Username">
+        
+          </div>
+          {{!-- name --}}
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name">
+          </div>
+            {{!-- email --}}
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          {{!-- zipcode --}}
+          <div class="form-group">
+            <label for="zip">Zipcode</label>
+            <input type="number" class="form-control" name="zip" placeholder="Zipcode">
+          </div>
+          {{!-- password --}}
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          {{!-- password verification --}}
+          <div class="form-group">
+            <label for="password2">Verify Password</label>
+            <input type="password" class="form-control" name="password2" placeholder="Verify Password">
+          </div>
+          <input type="submit" for="userForm" class="btn btn-primary"></input>
+        </form>
+        {{error}}
+</div>
+
+
+</body>

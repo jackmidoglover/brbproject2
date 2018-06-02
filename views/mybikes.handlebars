@@ -1,0 +1,35 @@
+<h1 id='abc' style="text-align: center;">My Bikes</h1>
+
+    <div class="row">
+         {{#each bikes}}
+        <div class="col-sm-4">
+            <div class="card bg-light my-bikes-cards">
+                <img class="card-img-top" src={{ImageURL}} alt="#">
+                <div class="card-body">
+                    <h5 class="card-title">{{Make}}</h5>
+                    <p class="card-text">{{Model}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                                Serial #: <li class="list-group-item">{{SerialNumber}}</li>
+                                Color: <li class="list-group-item">{{Color}}</li>
+                                Make: <li class="list-group-item">{{Make}}</li>
+                                Model: <li class="list-group-item">{{Model}}</li>
+                                
+                    
+                </ul>
+                <div class="card-body">
+                    {{!-- <a href="#" class="card-link">{{ImageURL}}</a> --}}
+
+                    <a href="/stolen/{{this.id}}">
+                        <button name="stolen" class="btn btn-success" id="{{this.id}}"/>Report Stolen</button>
+                    </a>
+                    <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" value="I Found It!" />
+                    
+                    <a href="/api/bikes/delete/{{this.id}}"><button for="delete" class="btn btn-success"> Delete Bike</button></a>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+

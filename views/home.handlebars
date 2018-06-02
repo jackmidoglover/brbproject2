@@ -1,0 +1,51 @@
+
+
+
+
+        <div class ="col-md-12 mid-col text-center">
+                <h1 id="search-bikes">Local Theft Report</h1>
+            </div>    
+    <div class ="col-md-12 mid-col text-center">
+    
+                <form>
+                  <input type="text" id="bike-search" placeholder="zip code here"></input>
+                  <input for="location-search" id="search" type="submit"></input>
+                </form>   
+    
+        </div>
+    
+    
+    
+        
+    
+        <div class ="col-md-12 mid-col text-center">
+     
+            <div class="search-field">
+                    <p>google map here</p>
+            </div>
+    </div>
+    <br>
+    
+ <div class="row">   
+    {{#if stolen}}
+    {{#each stolen}}
+    {{>stolen/lostbikes}}
+        {{/each}}
+ {{/if}} 
+ </div>    
+ <br>
+ <br>          
+                
+                
+
+        
+        
+        
+        
+        
+              </div> 
+    
+    
+    
+    
+    

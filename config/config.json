@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "root",
+    "database": "brb_db",
+    "host": "127.0.0.1",
+    "port": "3000",
+    "dialect": "postgres"
+  }
+}
