@@ -37,12 +37,45 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 140]
       }
     },
+    DateStolen: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 140]
+      }
+    },
+    TimeStolen: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 140]
+      }
+    },
+    LocationStolen: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 140]
+      }
+    },
+    Reward: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1, 140]
+      }
+    },
 
   });
 
   //create bike
   app.post('/api/bikes', (req, res) => {
-    Bikes.create(req.body)
+    db.Bikes.create(req.body)
+      .then(bikes => res.json(bikes))
+  })
+  //mark bike stolen
+  app.post('/api/bikes/stolen', (req, res) => {
+    db.bikes.update(req.body)
       .then(bikes => res.json(bikes))
   })
 
@@ -62,7 +95,7 @@ module.exports = function (sequelize, DataTypes) {
 
   //delete bike
   app.delete('/api/bikes', (req, res) => {
-    Bikes.remove(req.body)
+    Bikes.destroy(req.body)
       .then(bikes => res.json(bikes))
   })
 
