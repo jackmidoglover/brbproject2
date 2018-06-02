@@ -23,12 +23,4 @@ router.get("/", (req, res) => {
     });
 
 
-router.post('/api/bikes', (req, res) => {
-   
-});
-
-router.post('/api/bikes/:id', (req, res) => {
-   
-});
-
 module.exports = router;
