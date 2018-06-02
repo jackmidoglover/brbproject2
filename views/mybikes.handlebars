@@ -24,8 +24,8 @@
                         <button name="stolen" class="btn btn-success" id="{{this.id}}"/>Report Stolen</button>
                     </a>
                     <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" value="I Found It!" />
-
-                    <input type="submit" name="deletethis" class="btn btn-success " data-value="{{this.id}}" />
+                    
+                    <a href="/api/bikes/delete/{{this.id}}"><button for="delete" class="btn btn-success"> Delete Bike</button></a>
 
                 </div>
             </div>
