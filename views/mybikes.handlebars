@@ -20,11 +20,12 @@
                 <div class="card-body">
                     {{!-- <a href="#" class="card-link">{{ImageURL}}</a> --}}
 
-                    <input type="submit" name="itwasstolen" class="btn btn-success " id="founduserbike" value="Report Stolen" id="my-bike-stolen"
-                        method="PUT" action="/api/bikes/stolen" />
+                    <a href="/stolen/{{this.id}}">
+                        <button name="stolen" class="btn btn-success" id="{{this.id}}"/>Report Stolen</button>
+                    </a>
                     <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" value="I Found It!" />
 
-                    <input type="submit" name="deletethis" class="btn btn-success " id="founduserbike" value="Delete Bike" />
+                    <input type="submit" name="deletethis" class="btn btn-success " data-value="{{this.id}}" />
 
                 </div>
             </div>
