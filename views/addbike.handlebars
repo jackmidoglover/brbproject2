@@ -13,7 +13,7 @@
                             <div class="row">
 
                             <div class="col-sm-12 addbikeinputs">
-                            <form>
+                            <form id="add-bike-form" method="POST" action="/api/bikes">
                                 <input type="text" name="serial" placeholder="Serial #" class="add" id="serial"/>
                                 <br>
                                 <input type="text" name="manufacturer" placeholder="Manufacturer" class="add" id="manufacturer" />
@@ -28,7 +28,7 @@
                                 <br>
                                 <input type="text" name="reward" placeholder="Reward if Found" class="add" id="reward"/>
                                 <br>
-                                <input type="submit" name="submitit" class="btn btn-success " id="addBike" />
+                                <input type="submit" name="submitit" class="btn btn-success " id="addBike"  />
                         </div>
 
                     
