@@ -2,7 +2,7 @@ Below here is a working Handlebars for loop that will create a card for each bik
       <div class="row">
       <!-- {{#each stolenbikeybikes}} -->
       <div class="col-sm-4">
-            <div class="card">
+            <div class="card bg-light">
                 <img class="card-img-top" src={{bikeimage}} alt="#">
                 <div class="card-body">
                   <h5 class="card-title">STOLEN</h5>
@@ -16,7 +16,12 @@ Below here is a working Handlebars for loop that will create a card for each bik
                 </ul>
                 <div class="card-body">
                   <a href="#" class="card-link">{{linktoimagemaybe}}</a>
-                  <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" />
+                
+                    <input type="submit" name="itwasstolen" class="btn btn-success " id="founduserbike" value="Report Stolen" id="my-bike-stolen" method="POST" action="/api/mybikes" />
+                    <input type="submit" name="foundit" class="btn btn-success " id="founduserbike" value="I Found It!" />
+                  
+                    <input type="submit" name="deletethis" class="btn btn-success " id="founduserbike" value="Delete Bike" />
+ 
                 </div>
               </div>
         </div>

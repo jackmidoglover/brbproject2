@@ -25,20 +25,30 @@ module.exports = function(sequelize, DataTypes) {
           }
     },    
     Zipcode: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1, 140]
-          }
-    },    
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
     Email: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-        validate: {
-            len: [1, 140]
-          }
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
     }
+  });
+
+
+
+
+  Users.associate = function (models) {
+    // Associating User with Bikes
+    // When an User is deleted, also delete any associated Bikes
+    Users.hasMany(models.Bikes, {
+      onDelete: "cascade"
     });
   
     Users.associate = function(models) {
@@ -47,7 +57,8 @@ module.exports = function(sequelize, DataTypes) {
       Users.hasMany(models.Bikes, {
         onDelete: "cascade"
       });
-    };
+    }
+  };
 
     Users.prototype.validatePassword = function(password){
       return bcrypt.compareSync(password, this.password);
