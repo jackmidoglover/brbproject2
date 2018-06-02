@@ -51,14 +51,19 @@ router.put('/api/bikes/stolen', (req, res) => {
 
 //find bike belonging to user
 router.get('/mybikes', (req, res) => {
-    console.log(req.body.user_id);
+    console.log(req.user);
     db.Bikes.findAll ({
         where: {
-            id: req.body.user_id    
+            id: req.user    
         }
-    }).then((bikes) => {
-        console.log(bikes);
-        res.render("mybikes",bikes)
+    }).then((data) => {
+        let hbsinfo = {
+            bikes: data
+        };
+        
+        console.log(hbsinfo);
+        res.render("mybikes",hbsinfo)
+
 })
 })
 
