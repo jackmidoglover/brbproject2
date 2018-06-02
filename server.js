@@ -35,7 +35,7 @@ app.set('view engine', 'handlebars');
 const authroutes = require('./controllers/passport_controllers.js');
 const routes = require('./controllers/brb_controllers.js');
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(authroutes);
 app.use(routes);

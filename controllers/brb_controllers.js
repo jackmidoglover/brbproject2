@@ -40,7 +40,8 @@ router.post('/api/bikes', (req, res) => {
         Model: req.body.model,
         Color: req.body.color,
         SerialNumber: req.body.serial,
-        ImageURL: req.body.picture
+        ImageURL: req.body.picture,
+        UserId: req.user.id
     })
         .then(bikes => res.redirect("/"))
 })
@@ -82,7 +83,7 @@ router.get('/mybikes', (req, res) => {
     console.log(req.user.id);
     db.Bikes.findAll ({
         where: {
-            id: req.user.id    
+            UserId: req.user.id   
         }
     }).then((data) => {
         let hbsinfo = {
