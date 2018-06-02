@@ -68,36 +68,7 @@ module.exports = function (sequelize, DataTypes) {
 
   });
 
-  //create bike
-  app.post('/api/bikes', (req, res) => {
-    db.Bikes.create(req.body)
-      .then(bikes => res.json(bikes))
-  })
-  //mark bike stolen
-  app.post('/api/bikes/stolen', (req, res) => {
-    db.bikes.update(req.body)
-      .then(bikes => res.json(bikes))
-  })
-
-  //find bike belonging to user
-  app.get('/api/bikes/:userId?', (req, res) => {
-    let query; {
-      (req.params.userId)
-      query = Bikes.findAll({
-        include: [
-          { model: User, where: { id: req.params.userId } },
-        ]
-      })
-
-    }
-    return query.then(bikes => res.json(bikes))
-  })
-
-  //delete bike
-  app.delete('/api/bikes', (req, res) => {
-    Bikes.destroy(req.body)
-      .then(bikes => res.json(bikes))
-  })
+  
 
   return Bikes;
 };
