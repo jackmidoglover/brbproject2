@@ -6,6 +6,7 @@ let loginStatus = {
     loggedIn: false,
     loggedOut: true
 }
+let bikeID;
 
 router.get("/", (req, res) => {
     if(req.isAuthenticated()){
@@ -37,21 +38,38 @@ router.post('/api/bikes', (req, res) => {
 
 
 //mark bike stolen
-router.put('/api/bikes/stolen', (req, res) => {
-    db.bikes.update({
+
+router.get("/stolen/:id?", (req, res) => {
+    console.log(req.params.id);
+    bikeID = req.params.id;
+    res.render("stolen");
+})
+router.post('/stolen/:id?', (req, res) => {
+
+    console.log(bikeID);
+    db.Bikes.update({
         DateStolen: req.body.date,
         LocationStolen: req.body.location,
         TimeStolen: req.body.time,
-        Reward: req.body.reward
+        Reward: req.body.reward,
+        Comments: req.body.comments
+
+    }, {
+        where: {
+            id: bikeID
+        }
     })
-        .then(bikes => res.json(bikes))
+        .then(() => {
+            console.log("processed");
+        res.render("stolen", {message: "Bike reported stolen."})
+        })
 })
 
 
 
 //find bike belonging to user
 router.get('/mybikes', (req, res) => {
-    console.log(req.user);
+    console.log(req.body);
     db.Bikes.findAll ({
         where: {
             id: req.user    
