@@ -96,11 +96,13 @@ router.get('/mybikes', (req, res) => {
 })
 
 //delete bike
-router.delete('/api/bikes/delete', (req, res) => {
-    console.log(req.body.delete)
+router.get("/api/bikes/delete/:id?", (req, res) => {
+    console.log(req.params.id);
+    console.log("delete hit");
+    const bikeDelete = req.params.id;
     db.Bikes.destroy({
         where: {
-            id: req.body.delete
+            id: bikeDelete
         }
     }).then(bikes => res.redirect("/"))
 })
