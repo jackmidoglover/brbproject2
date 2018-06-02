@@ -55,6 +55,7 @@ db.sequelize.sync({ force: true }).then(function () {
 
 
 
+
 // Syntx to connect to Postgresql server
 // CONNECT TO connection_target [ AS connection_name ] [ USER connection_user ]
 // CONNECT TO DEFAULT

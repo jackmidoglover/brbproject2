@@ -15,7 +15,7 @@
     <header class="brb-header">
         <img src="assets/images/brbiconmod2.png" alt="#" height="133" width="264" class="logo-img">
     </header>
-    <nav class="navbar navbar-light bg-light navbar-expand-lg">
+    <nav class="navbar navbar-light bg-light navbar-expand-lg" id="navnav">
        
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,13 @@
                 <li class="navbar-item">
                     <a href="#" class="nav-link"><span class='red'>||</span>Home<span class='red'>||</span></a>
                 </li>
-                <li class="navbar-item">
-                    <a href="#" class="nav-link"><span class='red'>||</span>Login/Sign-Up<span class='red'>||</span></a>
+                <li class="navbar-item" id="auth">
+                    {{#if loggedOut}}
+                        {{>login/loginbutton}}
+                    {{/if}}
+                    {{#if loggedIn}}
+                        {{>login/logoutbutton}}
+                    {{/if}}
                 </li>
                 <li class="navbar-item">
                     <a href="#" class="nav-link"><span class='red'>||</span>Bike Registry<span class='red'>||</span> </a>
