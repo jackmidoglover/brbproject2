@@ -4,23 +4,32 @@ const express = require('express');
 const router = express.Router();
 let loginStatus = {
     loggedIn: false,
-    loggedOut: true
+    loggedOut: true,
+    stolen: {}
 }
 let bikeID;
 
 router.get("/", (req, res) => {
-    if(req.isAuthenticated()){
-        console.log('we got you');
-        loginStatus.loggedIn = true;
-        loginStatus.loggedOut = false;
-        res.render("home", loginStatus);
-    }
-    else {
-        console.log('nuh uh');
-        loginStatus.loggedIn = false;
-        loginStatus.loggedOut = true;
-        res.render("home", loginStatus);
-    }
+    db.Bikes.findAll({
+        where: {
+            Stolenness: true
+        }
+    }).then((data) => {
+        if(req.isAuthenticated()){
+            console.log('we got you');
+            loginStatus.loggedIn = true;
+            loginStatus.loggedOut = false;
+            loginStatus.stolen = data;
+            res.render("home", loginStatus);
+        }
+        else {
+            console.log('nuh uh');
+            loginStatus.loggedIn = false;
+            loginStatus.loggedOut = true;
+            res.render("home", loginStatus);
+        }
+    
+    })
     });
 
 
@@ -48,6 +57,7 @@ router.post('/stolen/:id?', (req, res) => {
 
     console.log(bikeID);
     db.Bikes.update({
+        Stolenness: true,
         DateStolen: req.body.date,
         LocationStolen: req.body.location,
         TimeStolen: req.body.time,

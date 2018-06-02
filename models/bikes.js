@@ -37,6 +37,11 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 140]
       }
     },
+    Stolenness: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
     DateStolen: {
       type: DataTypes.STRING,
       allowNull: true,
