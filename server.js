@@ -17,9 +17,10 @@ const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/config.json');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+// app.use(express.static('views'));
 app.use(cookieParser());
 app.use(session({
     secret: 'iou8sadjh7453alk',
@@ -51,6 +52,7 @@ db.sequelize.sync({ force: true }).then(function () {
         console.log("I hear you barkin dawg", PORT)
     });
 });
+
 
 
 

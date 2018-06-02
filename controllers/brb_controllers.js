@@ -2,16 +2,29 @@ var db = require("../models");
 var passport = require("../config/passport");
 const express = require('express');
 const router = express.Router();
+let loginStatus = {
+    loggedIn: false,
+    loggedOut: true
+}
 
 router.get("/", (req, res) => {
-    console.log(req.user);
-    console.log(req.isAuthenticated());
-    return res.render("home");
-});
+    if(req.isAuthenticated()){
+        console.log('we got you');
+        loginStatus.loggedIn = true;
+        loginStatus.loggedOut = false;
+        res.render("home", loginStatus);
+    }
+    else {
+        console.log('nuh uh');
+        loginStatus.loggedIn = false;
+        loginStatus.loggedOut = true;
+        res.render("home", loginStatus);
+    }
+    });
 
 
 //create bike
-app.post('/api/bikes', (req, res) => {
+router.post('/api/bikes', (req, res) => {
     db.Bikes.create({
         Make: req.body.make,
         Model: req.body.model,
@@ -19,10 +32,12 @@ app.post('/api/bikes', (req, res) => {
         SerialNumber: req.body.serial,
         ImageURL: req.body.picture
     })
-        .then(bikes => res.json(bikes))
+        .then(bikes => res.redirect("/"))
 })
+
+
 //mark bike stolen
-app.put('/api/bikes/stolen', (req, res) => {
+router.put('/api/bikes/stolen', (req, res) => {
     db.bikes.update({
         DateStolen: req.body.date,
         LocationStolen: req.body.location,
@@ -35,21 +50,52 @@ app.put('/api/bikes/stolen', (req, res) => {
 
 
 //find bike belonging to user
-app.get('/api/bikes/:userId?', (req, res) => {
+router.get('/mybikes', (req, res) => {
     console.log(req.body.user_id);
     db.Bikes.findAll ({
         where: {
             id: req.body.user_id    
         }
-    }).then(bikes => res.json(bikes))
+    }).then((bikes) => {
+        console.log(bikes);
+        res.render("mybikes",bikes)
+})
 })
 
 //delete bike
-app.delete('/api/bikes', (req, res) => {
+router.delete('/api/bikes', (req, res) => {
     db.Bikes.destroy(req.body)
         .then(bikes => res.json(bikes))
 })
+
+
+
+
+
+
+router.get('/swag', (req, res) => {
+    res.render("swag");
+   
+});
+
+router.get('/team', (req, res) => {
+    res.render("team");
+});
+
+
+router.get('/addbike', (req, res) => {
+    res.render("addbike");
+});
+
+router.get('/mybikes', (req, res) => {
+    res.render("mybikes");
+});
+
+router.get('/login', (req, res) => {
+
+    res.render("login");
+   
+});
+
+
 module.exports = router;
-
-
-

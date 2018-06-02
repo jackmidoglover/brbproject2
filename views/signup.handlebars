@@ -1,38 +1,25 @@
+<div class="col-sm-12   text-center ">
+        <h2 class='addbikeheader'>{{title}}</h2>
+    <div class="row">
 
-<h1>{{title}}</h1>
+    <div class="col-sm-12 addbikeinputs">
 <form id="userForm" method="POST" action="/signup">
-    {{!-- username --}}
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" name="username" aria-describedby="username" placeholder="Username">
+        <input type="text" name="username" placeholder="Username" class="add" id="username"/>
+            <br>
+        <input type="text" name="name" placeholder="Name" class="add" id="name"/>
+        <br>
+        <input type="text" name="email" placeholder="Email (We will never share this)" class="add" id="email" />
+        <br>
+        <input type="text" name="zip" placeholder="Zip Code" class="add" id="zip" />
+        <br>
 
-  </div>
-  {{!-- name --}}
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name" placeholder="Name">
-  </div>
-    {{!-- email --}}
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" name="email" placeholder="Email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  {{!-- zipcode --}}
-  <div class="form-group">
-    <label for="zip">Zipcode</label>
-    <input type="number" class="form-control" name="zip" placeholder="Zipcode">
-  </div>
-  {{!-- password --}}
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
-  </div>
-  {{!-- password verification --}}
-  <div class="form-group">
-    <label for="password2">Verify Password</label>
-    <input type="password" class="form-control" name="password2" placeholder="Verify Password">
-  </div>
-  <input type="submit" for="userForm" class="btn btn-primary"></input>
+        <input type="password" name="password" placeholder="Password" class="add" id="password" />
+        <br>
+        <input type="password" name="password2" placeholder="Verify Password" class="add" id="password2"/>
+        <br>
+        <input type="submit" for="userForm" class="btn btn-success" />
+        {{error}}
 </form>
-{{error}}
+</div>
+</div>
+</div>

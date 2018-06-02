@@ -1,5 +1,5 @@
-const db = require("../models");
 const passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 require('dotenv').config();
 // const users = require('../models/users');
@@ -10,20 +10,23 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
+
 router.get("/signup", (req, res) => {
         console.log("signup hit");
+        if(req.user){
+            res.redirect("/");
+        }
         res.render("signup", {title: "Registration"});
     })
 
-router.post("/signup", (req, res) => {
-    const password = req.body.password;
-    const password2 = req.body.password2;
+router.post("/signup",(req, res) => {
+    let password = req.body.password;
+    let password2 = req.body.password2;
     if (password === password2) {
-        bcrypt.hash(password, saltRounds, function(err, hash) {
             db.Users.create({
-                UserName: req.body.username,
+                username: req.body.username,
                 Name: req.body.name,
-                UserPassword: hash,
+                password: password,
                 Zipcode: req.body.zip,
                 Email: req.body.email 
             }).then(function(saved){
@@ -42,7 +45,6 @@ router.post("/signup", (req, res) => {
             }).catch(function(err){
                 res.render("signup", {title: "Registration error", error : "We were unable to register you. Please check to see that all fields are filled."})
             })
-        });
     }
     else {
         res.render("signup", {title: "Registration error", error: "Passwords do not match."})
@@ -63,6 +65,32 @@ passport.serializeUser(function(user_id, done) {
         })
   });
 
+  router.get("/login", (req,res) => {
+      console.log("login hit");
+      if (req.user){
+          res.redirect("/");
+      }
+      else{
+      res.render("login");
+      }
+  })
 
+router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}), (req,res) => {
+    // let password = req.body.password;
+    // let password2 = req.body.password2;
+    // if (password === password2) {
+            res.redirect("/");
+        console.log("passwords match hit");
+    // }
+    // else {
+    //     res.render("login", {error: "Passwords do not match."})
+    //     console.log("passwords don't match");
+    // }
+});
+
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+})
 
 module.exports = router;

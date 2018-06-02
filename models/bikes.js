@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 module.exports = function (sequelize, DataTypes) {
-  const Users = sequelize.define("Bikes", {
+  const Bikes = sequelize.define("Bikes", {
     // Giving the Bikes model a name of type STRING 
     Make: {
       type: DataTypes.STRING,
