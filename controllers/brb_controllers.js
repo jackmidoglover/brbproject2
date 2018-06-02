@@ -23,13 +23,59 @@ router.get("/", (req, res) => {
     });
 
 
+//create bike
 router.post('/api/bikes', (req, res) => {
-   
-});
+    db.Bikes.create({
+        Make: req.body.make,
+        Model: req.body.model,
+        Color: req.body.color,
+        SerialNumber: req.body.serial,
+        ImageURL: req.body.picture
+    })
+        .then(bikes => res.redirect("/"))
+})
 
-router.post('/api/bikes/:id', (req, res) => {
-   
-});
+
+//mark bike stolen
+router.put('/api/bikes/stolen', (req, res) => {
+    db.bikes.update({
+        DateStolen: req.body.date,
+        LocationStolen: req.body.location,
+        TimeStolen: req.body.time,
+        Reward: req.body.reward
+    })
+        .then(bikes => res.json(bikes))
+})
+
+
+
+//find bike belonging to user
+router.get('/mybikes', (req, res) => {
+    console.log(req.user);
+    db.Bikes.findAll ({
+        where: {
+            id: req.user    
+        }
+    }).then((data) => {
+        let hbsinfo = {
+            bikes: data
+        };
+        
+        console.log(hbsinfo);
+        res.render("mybikes",hbsinfo)
+
+})
+})
+
+//delete bike
+router.delete('/api/bikes', (req, res) => {
+    db.Bikes.destroy(req.body)
+        .then(bikes => res.json(bikes))
+})
+
+
+
+
 
 
 router.get('/swag', (req, res) => {
