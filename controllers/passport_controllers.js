@@ -2,7 +2,6 @@ const passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 require('dotenv').config();
-// const users = require('../models/users');
 let express = require('express');
 let router = express.Router();
 const db = require('../models');
@@ -76,16 +75,9 @@ passport.serializeUser(function(user_id, done) {
   })
 
 router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}), (req,res) => {
-    // let password = req.body.password;
-    // let password2 = req.body.password2;
-    // if (password === password2) {
             res.redirect("/");
         console.log("passwords match hit");
-    // }
-    // else {
-    //     res.render("login", {error: "Passwords do not match."})
-    //     console.log("passwords don't match");
-    // }
+
 });
 
 router.get("/logout", (req, res) => {
