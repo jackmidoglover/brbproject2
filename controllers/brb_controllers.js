@@ -86,12 +86,14 @@ router.get('/mybikes', (req, res) => {
 })
 
 //delete bike
-router.delete('/api/bikes', (req, res) => {
-    db.Bikes.destroy(req.body)
-        .then(bikes => res.json(bikes))
+router.delete('/api/bikes/delete', (req, res) => {
+    console.log(req.body.delete)
+    db.Bikes.destroy({
+        where: {
+            id: req.body.delete
+        }
+    }).then(bikes => res.redirect("/"))
 })
-
-
 
 
 
