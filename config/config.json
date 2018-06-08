@@ -8,11 +8,6 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "qoevrnyfsfgwlm",
-    "password": "04571da8bfb03c48b997ad06e22ecb9ba30670c907e5cd5a0750eadbacdd36dd",
-    "database": "dfngmo37veanpg",
-    "host": "ec2-50-19-232-205.compute-1.amazonaws.com",
-    "port": "5432",
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL"
   }
 }
