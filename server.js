@@ -7,12 +7,12 @@ const path = require('path');
 const app = express();
 const db = require("./models");
 const {Client} = require('pg');
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  });
+// const client = new Client({
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: true,
+//   });
   
-  client.connect();
+//   client.connect();
 
 // Allows html post requests
 const methodOverride = require('method-override');
