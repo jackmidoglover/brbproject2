@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const db = require("./models");
-const pg = require('pg');
+const {Client} = require('pg');
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
