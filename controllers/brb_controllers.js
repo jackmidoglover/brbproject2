@@ -126,10 +126,12 @@ router.get('/team', (req, res) => {
 
 
 router.get('/addbike', (req, res) => {
+    console.log(req.user.id);
     res.render("addbike");
 });
 
 router.get('/mybikes', (req, res) => {
+    console.log(req.user.id);
     res.render("mybikes");
 });
 
