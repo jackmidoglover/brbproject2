@@ -10,7 +10,7 @@ let loginStatus = {
 let bikeID;
 
 router.get("/", (req, res) => {
-    console.log(req.user.id);
+    console.log(req.body);
     console.log(req.body);
     db.Bikes.findAll({
         where: {
@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
 
 //create bike
 router.post('/api/bikes', (req, res) => {
-    console.log(req.user.id);
+    console.log(req.body);
     db.Bikes.create({
         Make: req.body.make,
         Model: req.body.model,
@@ -83,7 +83,7 @@ router.post('/stolen/:id?', (req, res) => {
 
 //find bike belonging to user
 router.get('/mybikes/:id', (req, res) => {
-    console.log(req.user.id);
+    console.log(req.body);
     
     db.Bikes.findAll ({
         where: {
@@ -126,12 +126,12 @@ router.get('/team', (req, res) => {
 
 
 router.get('/addbike', (req, res) => {
-    console.log(req.user.id);
+    console.log(req.body);
     res.render("addbike");
 });
 
 router.get('/mybikes', (req, res) => {
-    console.log(req.user.id);
+    console.log(req.body);
     res.render("mybikes");
 });
 
