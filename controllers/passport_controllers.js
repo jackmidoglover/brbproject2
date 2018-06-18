@@ -37,7 +37,7 @@ router.post("/signup",(req, res) => {
                     const user_id = user[0].dataValues.id;
                     console.log(user_id);
                     req.login(user_id, function(err){
-                        if (err) throw err;
+                        if (err) console.log (err);
                         res.redirect('/');
                     });
             });
@@ -49,20 +49,6 @@ router.post("/signup",(req, res) => {
         res.render("signup", {title: "Registration error", error: "Passwords do not match."})
     }
 });
-passport.serializeUser(function(user_id, done) {
-    console.log('serialized');
-    done(null, user_id);
-  });
-   
-  passport.deserializeUser(function(user_id, done) {
-      db.Users.findAll({
-          where: {
-              id: user_id
-          }
-      }).then(function(user){      
-          done(null, user_id);
-        })
-  });
 
   router.get("/login", (req,res) => {
       console.log("login hit");
@@ -85,4 +71,18 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 })
 
+passport.serializeUser(function(user_id, done) {
+    console.log('serialized');
+    done(null, user_id);
+  });
+   
+  passport.deserializeUser(function(user_id, done) {
+      db.Users.findAll({
+          where: {
+              id: user_id
+          }
+      }).then(function(user){      
+          done(null, user_id);
+        })
+  });
 module.exports = router;
