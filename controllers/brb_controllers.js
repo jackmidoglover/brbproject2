@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
 
 //create bike
 router.post('/api/bikes', (req, res) => {
-    console.log(req.body);
+    console.log(req.user);
     db.Bikes.create({
         Make: req.body.make,
         Model: req.body.model,
@@ -82,8 +82,8 @@ router.post('/stolen/:id?', (req, res) => {
 
 
 //find bike belonging to user
-router.get('/mybikes/:id', (req, res) => {
-    console.log(req.body);
+router.get('/mybikes/:id?', (req, res) => {
+    console.log(req.user);
     
     db.Bikes.findAll ({
         where: {
