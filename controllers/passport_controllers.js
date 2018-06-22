@@ -50,6 +50,21 @@ router.post("/signup",(req, res) => {
     }
 });
 
+passport.serializeUser(function(user_id, done) {
+    console.log('serialized');
+    done(null, user_id);
+  });
+   
+  passport.deserializeUser(function(user_id, done) {
+      db.Users.findAll({
+          where: {
+              id: user_id
+          }
+      }).then(function(user){      
+          done(null, user_id);
+        })
+  });
+
   router.get("/login", (req,res) => {
       console.log("login hit");
       if (req.user){
@@ -71,18 +86,4 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 })
 
-passport.serializeUser(function(user_id, done) {
-    console.log('serialized');
-    done(null, user_id);
-  });
-   
-  passport.deserializeUser(function(user_id, done) {
-      db.Users.findAll({
-          where: {
-              id: user_id
-          }
-      }).then(function(user){      
-          done(null, user_id);
-        })
-  });
 module.exports = router;
