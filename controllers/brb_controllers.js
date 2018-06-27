@@ -10,8 +10,7 @@ let loginStatus = {
 let bikeID;
 
 router.get("/", (req, res) => {
-    console.log(req.body);
-    console.log(req.body);
+    console.log(req.user);
     db.Bikes.findAll({
         where: {
             Stolenness: true
