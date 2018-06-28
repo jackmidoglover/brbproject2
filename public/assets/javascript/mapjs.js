@@ -49,7 +49,7 @@ function locationSearch(event) {
 
     $.ajax({
       type: 'GET',
-      url: 'https://whispering-plateau-60863.herokuapp.com/api/v3/search?page=1&per_page=25&location=' + userSearch.lat + ',' + userSearch.lng + '&distance=10&stolenness=proximity',
+      url: 'https://morning-inlet-45068.herokuapp.com/api/v3/search?page=1&per_page=25&location=' + userSearch.lat + ',' + userSearch.lng + '&distance=10&stolenness=proximity',
       dataType: 'json',
       cache: false,
     }).done(function (data) {
